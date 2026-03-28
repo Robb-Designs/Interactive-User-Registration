@@ -5,43 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Registration Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./style.css">
     <script defer src="./script.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Register</h1>
+<body class="min-h-screen flex items-center justify-center bg-base-200">
+    <div class="card w-full max-w-md bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h1 class="text-2xl font-bold text-center">Register</h1>
 
-        <form id="registrationForm" novalidate>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" minlength="4">
-                <span class="error-message" id="usernameError"></span>
-            </div>
+            <form id="registrationForm" novalidate class="space-y-4">
+                <div class="form-group">
+                    <label class="label">
+                        <span class="label-text">Username</span>
+                    </label>
+                    <input type="text" id="username" name="username" minlength="4" class="input input-bordered w-full">
+                    <span class="error-message" id="usernameError" class="text-error text-sm mt-1"></span>
+                </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <span class="error-message" id="emailError"></span>
-            </div>
+                <div class="form-group">
+                    <label class="label">
+                        <span class="label-text">Email</span>
+                    </label>
+                    <input type="email" id="email" name="email" class="input input-bordered w-full" required>
+                    <span class="error-message" id="emailError" class="text-error text-sm mt-1"></span>
+                </div>
 
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" minlength="8" required>
-                <small>Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, and
-                    a number.</small>
-                <span class="error-message" id="passwordError"></span>
-            </div>
+                <div class="form-group">
+                    <label class="label">
+                        <span class="label-text">Password</span>
+                    </label>
+                    <input type="password" id="password" name="password" minlength="8"
+                        class="input input-bordered w-full" required>
+                    <small>Password must be at least 8 characters long, include an uppercase letter, a lowercase letter,
+                        and
+                        a number.</small>
+                    <span class="error-message" id="passwordError" class="text-error text-sm mt-1"></span>
+                </div>
 
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-                <span class="error-message" id="confirmPasswordError"></span>
-            </div>
-            
-            <button type="submit">Register</button>
-        </form>
+                <div class="form-group">
+                    <label class="label">
+                        <span class="label-text">Confirm Password</span>
+                    </label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="input input-bordered w-full" required>
+                    <span class="error-message" id="confirmPasswordError" class="text-error text-sm mt-1"></span>
+                </div>
+
+                <button type="submit"  class="btn btn-primary w-full mt-2">Register</button>
+            </form>
+        </div>
     </div>
 </body>
 
