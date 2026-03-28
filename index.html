@@ -16,7 +16,7 @@
         <form id="registrationForm" novalidate>
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" minlength="4">
                 <span class="error-message" id="usernameError"></span>
             </div>
 
@@ -28,7 +28,7 @@
 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" minlength="8" required>
                 <small>Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, and
                     a number.</small>
                 <span class="error-message" id="passwordError"></span>
@@ -36,7 +36,7 @@
 
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword">
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
                 <span class="error-message" id="confirmPasswordError"></span>
             </div>
             
