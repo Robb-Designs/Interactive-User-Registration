@@ -71,14 +71,14 @@ const validatePassword = () => {
 }
 
 // Confirm password validation
-const validateConfirmPassword = () =>{
+const validateConfirmPassword = () => {
     let isValid = true;
     const confirmPassword = confirmInput.value.trim();
 
-    if(confirmInput.validity.valueMissing){
+    if (confirmInput.validity.valueMissing) {
         confirmErrorBox.textContent = "Please confirm your password";
         isValid = false;
-    } else if(confirmPassword !== passwordInput.value){
+    } else if (confirmPassword !== passwordInput.value) {
         confirmErrorBox.textContent = "Passwords do not match";
         isValid = false;
     } else {
@@ -87,3 +87,39 @@ const validateConfirmPassword = () =>{
 
     return isValid;
 }
+
+// Event listeners-------------------------------------------------------
+usernameInput.addEventListener("input", validateUsername);
+emailInput.addEventListener("input", validateEmail);
+passwordInput.addEventListener("input", () => {
+    validatePassword();
+    validateConfirmPassword();
+});
+confirmInput.addEventListener("input", validateConfirmPassword);
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const isUsernameValid = validateUsername();
+    const isEmailValid = validateEmail();
+    const isPasswordValid = validatePassword();
+    const isConfirmValid = validateConfirmPassword();
+
+    if (isUsernameValid && isEmailValid && isPasswordValid && isConfirmValid) {
+        alert("Registration successful!");
+        localStorage.setItem("username", usernameInput.value);
+        form.reset();
+    } else {
+        // Focus first invalid field
+        if (!isUsernameValid) {
+            usernameInput.focus();
+        } else if (!isEmailValid) {
+            emailInput.focus();
+        } else if (!isPasswordValid) {
+            passwordInput.focus();
+        } else {
+            confirmInput.focus();
+        }
+    }
+})
+
